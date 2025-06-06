@@ -12,7 +12,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "futro"; # Define your hostname.
-  networking.networkmanager.enable =  true; # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable =
+    true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -30,7 +31,8 @@
     susagi = {
       isNormalUser = true;
       initialPassword = "changeme";
-      openssh.authorizedKeys.keyFiles = [ /home/susagi/.config/nixos/pubkeys/tp_dev.pub ];
+      openssh.authorizedKeys.keyFiles =
+        [ /home/susagi/.config/nixos/pubkeys/tp_dev.pub ];
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
       packages = with pkgs; [ tree vim nixfmt ];
     };
@@ -46,8 +48,7 @@
   };
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-   environment.systemPackages = with pkgs; [ git nixfmt-classic btop 
-   ];
+  environment.systemPackages = with pkgs; [ git nixfmt-classic btop ];
 
   # List services that you want to enable:
 
