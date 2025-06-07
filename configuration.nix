@@ -11,9 +11,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "futro"; # Define your hostname.
-  networking.networkmanager.enable =
-    true; # Easiest to use and most distros use this by default.
+  networking = {
+    interfaces.enp1s0.wakeOnLan = {
+      enable = true;
+      policy = [ "magic" ];
+    };
+    hostName = "futro"; # Define your hostname.
+    networkmanager.enable =
+      true; # Easiest to use and most distros use this by default.
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -34,7 +40,7 @@
       openssh.authorizedKeys.keyFiles =
         [ /home/susagi/.config/nixos/pubkeys/tp_dev.pub ];
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-      packages = with pkgs; [ tree vim nixfmt ];
+      packages = with pkgs; [ tree vim ];
     };
 
     clinton = {
@@ -48,7 +54,7 @@
   };
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [ git nixfmt-classic btop ];
+  environment.systemPackages = with pkgs; [ git nixfmt-classic btop ethtool ];
 
   # List services that you want to enable:
 
@@ -56,6 +62,18 @@
   services.openssh = {
     enable = true;
     ports = [ 30715 ];
+  };
+
+  # The services doesn't actually work atm, define an additional service see https://github.com/NixOS/nixpkgs/issues/91352
+  systemd.services.wakeonlan = {
+    description = "Reenable wake on lan every boot";
+    after = [ "network.target" ];
+    serviceConfig = {
+      Type = "simple";
+      RemainAfterExit = "true";
+      ExecStart = "${pkgs.ethtool}/sbin/ethtool -s enp1s0 wol g";
+    };
+    wantedBy = [ "default.target" ];
   };
 
   # Open ports in the firewall.
@@ -72,6 +90,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }
-
