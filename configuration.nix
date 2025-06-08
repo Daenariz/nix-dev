@@ -51,6 +51,15 @@
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
       packages = with pkgs; [ tree ];
     };
+
+    mxdb = {
+      isNormalUser = true;
+      initialPassword = "changeme";
+      openssh.authorizedKeys.keyFiles =
+        [ /home/mxdb/.config/nixos/pubkeys/mxdb.pub ];
+      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      packages = with pkgs; [ tree ];
+    };
   };
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
