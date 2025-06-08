@@ -9,6 +9,7 @@ Welcome to the nix-dev repository. This repository is designed as a centralized 
 ├── hardware-configuration.nix
 ├── pubkeys
 │   ├── clinton.pub
+│   ├── mxdb.pub
 │   └── tp_dev.pub
 └── README.md
 
