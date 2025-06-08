@@ -62,6 +62,11 @@
   services.openssh = {
     enable = true;
     ports = [ 30715 ];
+openFirewall = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+};
   };
 
   # The services doesn't actually work atm, define an additional service see https://github.com/NixOS/nixpkgs/issues/91352
@@ -80,7 +85,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # This value being lower than the current NixOS release does NOT mean your system is
   # out of date, out of support, or vulnerable.
@@ -89,5 +94,5 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "25.11"; ### TODO: this is supposed to be 24.11 BUT needs further investigation it seems
 }
