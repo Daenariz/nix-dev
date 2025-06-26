@@ -5,7 +5,7 @@
       isNormalUser = true;
       initialPassword = "changeme";
       openssh.authorizedKeys.keyFiles =
-        [ /home/susagi/.config/nixos/pubkeys/tp_dev.pub ];
+        [ ./pubkeys/tp_dev.pub ];
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
       packages = with pkgs; [ tree vim ];
     };
@@ -14,7 +14,7 @@
       isNormalUser = true;
       initialPassword = "changeme";
       openssh.authorizedKeys.keyFiles =
-        [ /home/clinton/.config/nixos/nix-dev/pubkeys/clinton.pub ];
+        [ ./pubkeys/clinton.pub ];
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
       packages = with pkgs; [ tree ];
     };
@@ -23,7 +23,7 @@
       isNormalUser = true;
       initialPassword = "changeme";
       openssh.authorizedKeys.keyFiles =
-        [ /home/mxdb/.config/nixos/pubkeys/mxdb.pub ];
+        [ ./pubkeys/mxdb.pub ];
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
       packages = with pkgs; [ tree ];
     };
