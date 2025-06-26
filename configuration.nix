@@ -9,7 +9,7 @@
   environment.shellAliases = {
     ll = "ls -lAh";
     gco = "git checkout";
-   gc = "git commit";
+    gc = "git commit";
     gs = "git status";
     gpl = "git pull";
     gp = "git push";
@@ -18,12 +18,6 @@
     v = "vim";
     go2cfgdir = "cd ~/.config/nixos";
   };
-
-  nix.nixPath = [
-    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    "nixos-config=/home/susagi/.config/nixos/configuration.nix"
-    "/nix/var/nix/profiles/per-user/root/channels"
-  ];
 
   programs.ssh.startAgent = true;
 
