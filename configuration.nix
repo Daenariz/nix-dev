@@ -17,6 +17,7 @@
     ga = "git add";
     v = "vim";
     go2cfgdir = "cd ~/.config/nixos";
+    rebuild = "sudo nixos-rebuild switch --flake ~/.config/nixos#futro";
   };
 
   programs.ssh.startAgent = true;
