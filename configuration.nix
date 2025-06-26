@@ -9,6 +9,7 @@
   environment.shellAliases = {
     ll = "ls -lAh";
     gco = "git checkout";
+   gc = "git commit";
     gs = "git status";
     gpl = "git pull";
     gp = "git push";

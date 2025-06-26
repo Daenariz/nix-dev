@@ -10,6 +10,9 @@
     #   useXkbConfig = true; # use xkb.options in tty.
   };
 
+  # Enable Flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;

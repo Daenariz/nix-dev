@@ -14,7 +14,7 @@
       isNormalUser = true;
       initialPassword = "changeme";
       openssh.authorizedKeys.keyFiles =
-        [ /home/clinton/.config/nixos/pubkeys/clinton.pub ];
+        [ /home/clinton/.config/nixos/nix-dev/pubkeys/clinton.pub ];
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
       packages = with pkgs; [ tree ];
     };
