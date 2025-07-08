@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./users.nix
     ./common.nix
+   # ./webui.nix
   ];
   environment.shellAliases = {
     ll = "ls -lAh";
