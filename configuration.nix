@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     ./users.nix
     ./common.nix
-   # ./webui.nix
+    # ./webui.nix
   ];
   environment.shellAliases = {
     ll = "ls -lAh";
@@ -16,6 +16,7 @@
     gp = "git push";
     gf = "git fetch --all";
     ga = "git add";
+    gd = "git diff";
     v = "vim";
     go2cfgdir = "cd ~/.config/nixos";
     rebuild = "sudo nixos-rebuild switch --flake ~/.config/nixos#futro";

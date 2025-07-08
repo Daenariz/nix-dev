@@ -1,7 +1,6 @@
-{ inputs, ...}:
-{
-imports = [ inputs.core.nixosModules.open-webui];
+{ inputs, ... }: {
+  imports = [ inputs.core.nixosModules.open-webui ];
 
-services.open-webui.enable = true;
+  services.open-webui.enable = true;
 
 }

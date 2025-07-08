@@ -12,6 +12,7 @@
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "@wheel" ];
 
   nixpkgs.config.allowUnfree = true;
 
